@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101010;
+  --color-coal: #1a1a18;
+  --color-cream: #f4f1ea;
+  --color-stone: #a8a39a;
+  --color-champagne: #c9a96a;
+  --color-champagne-light: #e3cda4;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+}
+
+::selection {
+  background: var(--color-champagne);
+  color: var(--color-ink);
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #2c2c29;
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-champagne);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 1px solid var(--color-champagne);
+  outline-offset: 3px;
+}
+
+/* ---- react-day-picker dark theme overrides ---- */
+.rdp-root {
+  --rdp-accent-color: var(--color-champagne);
+  --rdp-accent-background-color: rgba(201, 169, 106, 0.15);
+  --rdp-day-height: 2.5rem;
+  --rdp-day-width: 2.5rem;
+  --rdp-day_button-height: 2.4rem;
+  --rdp-day_button-width: 2.4rem;
+  --rdp-day_button-border-radius: 0;
+  --rdp-selected-border: 1px solid var(--color-champagne);
+  --rdp-selected-font: 500 0.85rem var(--font-inter), sans-serif;
+  --rdp-outside-opacity: 0.3;
+  --rdp-today-color: var(--color-champagne);
+  color: var(--color-cream);
+  font-family: var(--font-inter), sans-serif;
+  background: var(--color-coal);
+  margin: 0 auto;
+}
+
+.rdp-root .rdp-month_caption {
+  color: var(--color-cream);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding-bottom: 0.6rem;
+}
+
+.rdp-root .rdp-weekday {
+  color: var(--color-stone);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.rdp-root .rdp-day_button {
+  color: var(--color-cream);
+  font-size: 0.82rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.rdp-root .rdp-day_button:hover:not([disabled]) {
+  background: rgba(244, 241, 234, 0.1);
+}
+
+.rdp-root .rdp-chevron {
+  fill: var(--color-cream);
+}
+
+.rdp-root .rdp-selected .rdp-day_button {
+  background: rgba(201, 169, 106, 0.18);
+  color: var(--color-champagne);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
